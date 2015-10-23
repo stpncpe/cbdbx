@@ -3,23 +3,25 @@ body
 	margin: 0;
 	padding: 0;
 	color: #555;
-	font: normal 10pt Arial,Helvetica,sans-serif;
-	background: #EFEFEF;
+	font: normal 10pt Arial,Gadget,sans-serif;
+	//background: #EFEFEF;
+        background: url(/cbdbx/images/comics-bg.jpg) no-repeat center center fixed;
+        background-size: cover;
 }
 
 #page
 {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	background: white;
-	border: 1px solid #C9E0ED;
+	margin-top: 25px;
+	//margin-bottom: 25px;
+	background: #DDFFFF;
+	//border: 1px solid #C9E0ED;
 }
 
 #header
 {
 	margin: 0;
 	padding: 0;
-	border-top: 3px solid #C9E0ED;
+	//border-top: 3px solid #C9E0ED;
 }
 
 #content
@@ -44,7 +46,9 @@ body
 #logo
 {
 	padding: 10px 20px;
-	font-size: 200%;
+        color: #cc0000;
+	font-size: 250%;
+        text-align: center;
 }
 
 
@@ -226,11 +230,13 @@ div.search-form
        position: absolute;
        top: 24px;
        left: 10px;
+       color: #6399cd;
 }
 
 #mainmenu li ul li 
 {
        display: none;
+      
 }
 
 #mainmenu ul li a
@@ -242,7 +248,7 @@ div.search-form
 	font-size:12px;
 	font-weight:bold;
 	text-decoration:none;
-	padding:5px 8px;
+	padding:8px 8px;
 }
 
 #mainmenu .active a, #mainmenu li:hover > a, 
@@ -254,6 +260,5 @@ div.search-form
 	text-decoration:none;
 }
 
-/*
+
 #mainmenu ul li:hover > ul { display: block; }
-*/
