@@ -1,0 +1,10 @@
+##############################
+# MAIN FEATURES TO BE ADDED  #
+##############################
+
+
+- Form validations
+  * Input for null values especially in Publication Date. Publication date shouldn't be 0000-00-00
+  * Disallow illegal SQL  in text fields.
+
+- Sign-up for new users.
