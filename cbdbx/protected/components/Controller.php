@@ -20,4 +20,18 @@ class Controller extends SBaseController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+        
+        /* Override beforeAction() to change to the mobile layout if URL param['mobile'] == 'on' */
+        protected function beforeAction($action) {
+            if(Yii::app()->getRequest()->getQuery('mobile') == 'on') {
+                Yii::app()->user->setState('mobile', true);
+            } 
+            else if (Yii::app()->getRequest()->getQuery('mobile') == 'off') {
+                Yii::app()->user->setState('mobile', false);
+            }
+            if (Yii::app()->user->getState('mobile')) {
+                $this->layout = '//layouts/mobile';
+            }
+            return true;
+        }
 }

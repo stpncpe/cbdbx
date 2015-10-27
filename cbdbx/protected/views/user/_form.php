@@ -29,7 +29,7 @@
 	</div>
 
 	<?php
-        $isAdmin = true;
+        $isAdmin = true; // work around
         if ($isAdmin) { ?>
         <div class="row">
                 <b>Assignments</b><br/>

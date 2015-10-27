@@ -105,15 +105,33 @@ class BookController extends BController
 	 */
 	public function actionIndex()
 	{
+            
 		$criteria=new CDbCriteria;
 		$criteria->with = array('borrower.person');
 		$dataProvider=new CActiveDataProvider('Book', array(
 			'criteria' => $criteria,
 		));
+                if (Yii::app()->user->getState('mobile')) {
+                $view = 'mobile_index';
+                }
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 			'isAdmin'=>Yii::app()->user->checkAccess('admin'),
 		));
+               
+                /**
+                 * Mobile View
+                 */
+              /*  
+                $view = 'index';
+                $dataProvider=new
+                CActiveDataProvider('Book');
+                if (Yii::app()->user->getState('mobile')) {
+                $view = 'mobile_index';
+                }
+                $this->render($view,array(
+                'dataProvider'=>$dataProvider,
+                )); */
 	}
 
 	/**

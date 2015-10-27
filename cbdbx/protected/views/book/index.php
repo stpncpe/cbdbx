@@ -11,7 +11,9 @@ $this->menu=array(
 
 <h1>Books</h1>
 
-<?php $this->widget('zii.widgets.CListView', array(
+<?php
+$isAdmin = true; //another work around
+    $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'viewData' => array('isAdmin' => $isAdmin),
 	'itemView'=>'_view',

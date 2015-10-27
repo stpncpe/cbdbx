@@ -13,7 +13,13 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-
+        
+        
+        <?php Yii::app()->clientScript->registerCoreScript('jquery');
+              Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js/detectmobilebrowser.js');
+              Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . '/js/url_param_proc.js');
+        ?>
+        
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -27,6 +33,22 @@
 
 	<div id="mainmenu">
 	<?php 
+            /**
+             * Mobile browser detection
+             */
+            Yii::app()->clientScript->registerScript('detectmobilebrowser', "
+                    if(isMobileBrowser(navigator.userAgent||navigator.vendor||window.opera)) {
+                        if(window.location.search.search('mobile') == -1) {
+                          if(window.location.search.length) {
+                            window.location.replace(document.URL + '&mobile=on');
+                          } else {
+                            window.location.replace(document.URL + '&mobile=on');
+                          }
+                        }
+                    } else {
+                        //alert('Non-Mobile');
+                  } ",CClientScript::POS_READY);
+            
 		$this->widget('application.components.YiiSmartMenu',array(
 			'activeCssClass' => 'active',
 			'activateParents' => true,
